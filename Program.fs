@@ -22,7 +22,6 @@ let main argv =
     let sortedAst : SyntaxTree =
         ast |> CSharpFmt.Using.sortTree
 
-
     printfn "Original\n%s" (ast.ToString ())
     printfn "Sorted\n%s" (sortedAst.ToString ())
 

@@ -15,13 +15,10 @@ let stringify (usings : SyntaxList<UsingDirectiveSyntax>) : string =
     (usings.Select (fun u -> u.ToFullString ())).ToArray ()
         |> String.concat ""
 
-
-
 let sortRoot (root : CompilationUnitSyntax) : CompilationUnitSyntax =
     root.Usings 
         |> sort 
         |> root.WithUsings 
-
 
 let sortTree (tree : SyntaxTree) : SyntaxTree =
     tree.GetRoot () 
