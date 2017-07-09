@@ -13,3 +13,11 @@ let curry f =
 /// This combines two arguments into a single pair.
 let uncurry f =
     fun (a, b) -> f a b
+
+/// Turns an element into an array of single element
+let singleArray a =
+    [|a|]
+
+/// Curry then flip
+let curryFlip f =
+    f |> curry |> flip

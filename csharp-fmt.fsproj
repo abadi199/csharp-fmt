@@ -6,8 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Basics.fs" />
     <Compile Include="Helpers.fs" />
-    <Compile Include="Using.fs" />
+    <Compile Include="UsingDirective.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

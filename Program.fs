@@ -5,8 +5,6 @@ open Microsoft.CodeAnalysis.CSharp.Syntax
 open System.Linq
 open System.Collections.Generic
 
-
-
 [<EntryPoint>]
 let main argv =
 
@@ -19,11 +17,12 @@ let main argv =
     let ast : SyntaxTree = 
         CSharpSyntaxTree.ParseText file
 
-    let sortedAst : SyntaxTree =
-        ast |> CSharpFmt.Using.sortTree
+    let newAst : SyntaxTree =
+        ast 
+            |> CSharpFmt.UsingDirective.sort
+            |> CSharpFmt.UsingDirective.moveInsideNamespace
 
-    printfn "Original\n%s" (ast.ToString ())
-    printfn "Sorted\n%s" (sortedAst.ToString ())
+    printfn "%s" (newAst.ToString ())
 
     // return an integer exit code
     0
