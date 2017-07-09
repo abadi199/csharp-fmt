@@ -27,4 +27,4 @@ let sortTree (tree : SyntaxTree) : SyntaxTree =
     tree.GetRoot () 
         :?> CompilationUnitSyntax
         |> sortRoot
-        |> (flip tree.WithRootAndOptions) (CSharpParseOptions ())
+        |> (tree.WithRootAndOptions |> curry |> flip) (CSharpParseOptions ())
